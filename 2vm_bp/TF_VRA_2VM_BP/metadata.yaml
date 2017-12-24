@@ -1,0 +1,12 @@
+name: "auto-generated-pkg-72b5dd87-1fb3-483f-a785-85b47e0f946a"
+productVersion: "7.3.0-SNAPSHOT"
+data:
+- locator: "composite-blueprint/TF_VRA_2VM_BP.yaml"
+  name: "TF_VRA_2VM_BP"
+  description: "TF_VRA_2VM_BP"
+  dependencies:
+  - "software-component/Software.Component1.yaml"
+- locator: "software-component/Software.Component1.yaml"
+  name: "Component1"
+  description: "Test Software Component for Terraform testing"
+exportTime: "2017-12-24T19:48:10.054Z"

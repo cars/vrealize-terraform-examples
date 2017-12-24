@@ -1,0 +1,158 @@
+id: TF_VRA_2VM_BP
+name: TF_VRA_2VM_BP
+description: 'UBU 16 LTS 2 VM Blueprint for terraform provider testing. '
+status: PUBLISHED
+properties:
+  lab.bp.Prop2:
+    default: ''
+    required: true
+    secured: false
+    visible: true
+  lab.bp.prop1:
+    default: ''
+    required: true
+    secured: false
+    visible: true
+components:
+  SWComponent1_1:
+    type: Software.Component1
+    data:
+      booleanValue1:
+        default: true
+        visible: true
+      downloadLocation:
+        default: https://www.somewhere.com/getme
+        visible: true
+      host:
+        fixed: ${_resource~vm1}
+  SWComponent1_2:
+    type: Software.Component1
+    data:
+      booleanValue1:
+        default: true
+        visible: true
+      downloadLocation:
+        default: https://www.somewhere.com/getme
+        visible: true
+      host:
+        fixed: ${_resource~vm2}
+  vm1:
+    type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
+    data:
+      _cluster:
+        default: 1
+        max: 15
+        min: 1
+      action:
+        fixed: FullClone
+      allow_storage_policies:
+        fixed: false
+      blueprint_type:
+        fixed: '1'
+      cpu:
+        default: 1
+        max: 8
+        min: 1
+      disks:
+      - capacity: 60
+        custom_properties: null
+        id: 1509866243445
+        initial_location: ''
+        is_clone: true
+        label: Hard disk 1
+        storage_reservation_policy: ''
+        userCreated: false
+        volumeId: 0
+      guest_customization_specification: AnsiblePrep
+      lab.vm1.Prop2:
+        default: DefaultValue2
+        required: true
+        secured: false
+        visible: true
+      lab.vm1.prop1:
+        default: DefaultValue1
+        required: true
+        secured: false
+        visible: true
+      max_network_adapters: {}
+      max_volumes: {}
+      memory:
+        default: 1024
+        max: 16384
+        min: 1024
+      provisioning_workflow:
+        fixed:
+          id: CloneWorkflow
+          label: CloneWorkflow
+      security_groups: []
+      security_tags: []
+      source_machine:
+        fixed:
+          id: b37bbb31-67ad-4e03-abfa-eda8239529d2
+          label: UBU-v16LTS
+      source_machine_name:
+        fixed: UBU-v16LTS
+      storage:
+        default: 60
+        max: 250
+        min: 60
+  vm2:
+    type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
+    data:
+      _cluster:
+        default: 1
+        max: 1
+        min: 1
+      action:
+        fixed: FullClone
+      allow_storage_policies:
+        fixed: false
+      blueprint_type:
+        fixed: '1'
+      cpu:
+        default: 1
+        max: 4
+        min: 1
+      disks:
+      - capacity: 60
+        custom_properties: null
+        id: 1511507596130
+        initial_location: ''
+        is_clone: true
+        label: Hard disk 1
+        storage_reservation_policy: ''
+        userCreated: false
+        volumeId: 0
+      guest_customization_specification: AnsiblePrep
+      lab.vm2.prop1:
+        default: VM2 Prop1 Default Value
+        required: true
+        secured: false
+        visible: true
+      max_network_adapters: {}
+      max_volumes: {}
+      memory:
+        default: 1024
+        max: 16384
+        min: 1024
+      provisioning_workflow:
+        fixed:
+          id: CloneWorkflow
+          label: CloneWorkflow
+      security_groups: []
+      security_tags: []
+      source_machine:
+        fixed:
+          id: b37bbb31-67ad-4e03-abfa-eda8239529d2
+          label: UBU-v16LTS
+      source_machine_name:
+        fixed: UBU-v16LTS
+      storage:
+        default: 60
+        max: 200
+        min: 60
+layout:
+  SWComponent1_1: 0,0
+  SWComponent1_2: 0,0
+  vm1: 0,1
+  vm2: 0,0

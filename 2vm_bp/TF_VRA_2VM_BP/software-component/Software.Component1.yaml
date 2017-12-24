@@ -1,0 +1,84 @@
+'@type': "SoftwareComponentType"
+createdDate: "2017-11-07T21:39:31.907Z"
+lastUpdated: "2017-12-08T21:21:04.132Z"
+id: "Software.Component1"
+name: "Component1"
+description: "Test Software Component for Terraform testing"
+publishStatus: "PUBLISHED"
+publishStatusName: "Published"
+schema:
+  fields:
+  - id: "booleanValue1"
+    label: "booleanValue1"
+    description: ""
+    dataType:
+      type: "primitive"
+      typeId: "BOOLEAN"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "host"
+    label: "Container"
+    description: ""
+    dataType:
+      type: "ref"
+      componentTypeId: "com.vmware.csp.iaas.blueprint.service"
+      classId: "Infrastructure.Machine.Schema"
+      label: "Machine"
+    state:
+      dependencies: []
+      facets:
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+      - type: "visible"
+        value:
+          type: "constantClause"
+          value:
+            type: "boolean"
+            value: false
+      - type: "internal"
+        value:
+          type: "constantClause"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "downloadLocation"
+    label: "downloadLocation"
+    description: ""
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "https://www.somewhere.com/getme"
+    isMultiValued: false
+containerFieldId: "host"
+lifecycleTasks:
+- createdDate: "2017-11-07T21:39:31.909Z"
+  lastUpdated: "2017-12-08T21:21:04.132Z"
+  script:
+    scriptContent: "Mkdir C:\\vra-sw-agent\nWrite-Host \"This is a test of the emergency\
+      \ broadcast system\"\nwrite-host $downloadLocation"
+    isRebootAfter: false
+    scriptTypeId: "powershell"
+  taskDescriptorRef:
+    id: "INSTALL"
+    label: "Install"
